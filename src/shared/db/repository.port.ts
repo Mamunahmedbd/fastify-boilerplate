@@ -16,6 +16,8 @@ export interface PaginatedQueryParams {
 
 export interface RepositoryPort<Entity> {
   insert(entity: Entity | Entity[]): Promise<void>;
+  // update(entity: Partial<Entity>): Promise<void>;
+  // updateMany(entities: Entity[]): Promise<void>;
   findOneById(id: string): Promise<Entity | undefined>;
   findAll(): Promise<Entity[]>;
   findAllPaginated(params: PaginatedQueryParams): Promise<Paginated<Entity>>;
