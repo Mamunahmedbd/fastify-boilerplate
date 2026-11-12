@@ -8,7 +8,7 @@
     "create:env": "node -r fs -e \"fs.copyFileSync('.env.example', '.env', fs.constants.COPYFILE_EXCL)\"",
     "start": "tsx watch src --env-file=.env | pino-pretty",
     "start:prod": "node ./dist/index.js --env-file=.env",
-    "build": "sh ./.ci-ccogpy.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi; rm -rf ./dist && tsc --project tsconfig.build.json && resolve-tspaths -p tsconfig.build.json -s ./src -o ./dist",
+    "build": "rm -rf ./dist && tsc --project tsconfig.build.json && resolve-tspaths -p tsconfig.build.json -s ./src -o ./dist",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:unit": "vitest --selectProjects unit-tests",
